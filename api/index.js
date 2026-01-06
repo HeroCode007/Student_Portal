@@ -1,4 +1,4 @@
-// api/index.js - Vercel Serverless Function (ES Module)
+// api/index.js - Vercel Serverless Function (ES Module + Express 5 compatible)
 import express from 'express';
 import mongoose from 'mongoose';
 
@@ -71,8 +71,8 @@ const Assignment = mongoose.models.Assignment || mongoose.model('Assignment', as
 
 // Health check - no DB needed
 app.get('/api', (req, res) => {
-  res.json({ 
-    message: 'Student Portal API', 
+  res.json({
+    message: 'Student Portal API',
     status: 'ok',
     mongoUri: process.env.MONGODB_URI ? 'Set' : 'NOT SET'
   });
@@ -260,11 +260,6 @@ app.delete('/api/assignments/:id', async (req, res) => {
     console.error('Error deleting assignment:', error);
     res.status(500).json({ message: error.message });
   }
-});
-
-// 404 handler for API routes
-app.use('/api/*', (req, res) => {
-  res.status(404).json({ message: 'API endpoint not found' });
 });
 
 // Export for Vercel (ES Module syntax)
