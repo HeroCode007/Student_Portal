@@ -1,19 +1,18 @@
 import { useState } from 'react';
-import { User, Mail, Phone, MapPin, Calendar, BookOpen, Save, Edit2 } from 'lucide-react';
+import { User, Mail, Phone, MapPin, Calendar, BookOpen, Save, Edit2, GraduationCap } from 'lucide-react';
 
 function Profile() {
   const [isEditing, setIsEditing] = useState(false);
   const [profile, setProfile] = useState({
-    name: 'John Doe',
-    email: 'john.doe@university.edu',
-    phone: '+1 (555) 123-4567',
-    address: '123 University Ave, College Town, ST 12345',
-    dateOfBirth: '1999-05-15',
-    studentId: 'STU-2024-001',
-    major: 'Computer Science',
-    year: 'Junior',
-    gpa: '3.75',
-    advisor: 'Dr. Sarah Johnson',
+    name: 'Waqar ul Hasan',
+    email: '2023s-mulbscs@mul.edu.pk',
+    phone: '0311-6550203',
+    address: 'Lahore, Pakistan',
+    studentId: '013',
+    major: 'BS Computer Science',
+    semester: '6th Semester',
+    gpa: '3.0',
+    university: 'Minhaj University Lahore',
   });
 
   const handleInputChange = (field: string, value: string) => {
@@ -22,7 +21,6 @@ function Profile() {
 
   const handleSave = () => {
     setIsEditing(false);
-    // In a real app, this would save to the backend
     alert('Profile updated successfully!');
   };
 
@@ -59,16 +57,16 @@ function Profile() {
         <div className="p-6 rounded-xl bg-white/5 backdrop-blur-xl border border-white/10">
           <div className="flex flex-col items-center text-center">
             <div className="w-32 h-32 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center mb-4">
-              <User className="h-16 w-16 text-white" />
+              <span className="text-4xl font-bold text-white">WH</span>
             </div>
             <h2 className="text-2xl font-bold text-white">{profile.name}</h2>
-            <p className="text-gray-400">{profile.studentId}</p>
-            <div className="mt-4 flex items-center gap-2">
+            <p className="text-gray-400">Roll No: {profile.studentId}</p>
+            <div className="mt-4 flex flex-wrap items-center justify-center gap-2">
               <span className="px-3 py-1 rounded-full bg-indigo-600/30 text-indigo-300 text-sm">
                 {profile.major}
               </span>
               <span className="px-3 py-1 rounded-full bg-teal-600/30 text-teal-300 text-sm">
-                {profile.year}
+                {profile.semester}
               </span>
             </div>
           </div>
@@ -80,8 +78,8 @@ function Profile() {
                 <span>GPA: {profile.gpa}</span>
               </div>
               <div className="flex items-center gap-3 text-gray-300">
-                <User className="h-5 w-5 text-indigo-400" />
-                <span>Advisor: {profile.advisor}</span>
+                <GraduationCap className="h-5 w-5 text-indigo-400" />
+                <span>{profile.university}</span>
               </div>
             </div>
           </div>
@@ -191,20 +189,20 @@ function Profile() {
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           <div>
-            <label className="block text-sm text-gray-400 mb-2">Student ID</label>
+            <label className="block text-sm text-gray-400 mb-2">Roll Number</label>
             <p className="text-white font-medium">{profile.studentId}</p>
           </div>
           <div>
-            <label className="block text-sm text-gray-400 mb-2">Major</label>
+            <label className="block text-sm text-gray-400 mb-2">Program</label>
             <p className="text-white font-medium">{profile.major}</p>
           </div>
           <div>
-            <label className="block text-sm text-gray-400 mb-2">Year</label>
-            <p className="text-white font-medium">{profile.year}</p>
+            <label className="block text-sm text-gray-400 mb-2">Semester</label>
+            <p className="text-white font-medium">{profile.semester}</p>
           </div>
           <div>
-            <label className="block text-sm text-gray-400 mb-2">Academic Advisor</label>
-            <p className="text-white font-medium">{profile.advisor}</p>
+            <label className="block text-sm text-gray-400 mb-2">University</label>
+            <p className="text-white font-medium">{profile.university}</p>
           </div>
         </div>
       </div>
