@@ -5,14 +5,15 @@ function Profile() {
   const [isEditing, setIsEditing] = useState(false);
   const [profile, setProfile] = useState({
     name: 'Muhammad Umar Munir',
-    email: '2023s-mulbscs-016',
+    email: '2023s-mulbscs-016@mul.edu.pk',
     phone: '0303-0192804',
-    address: 'Lahore Pakistan',
+    address: 'Lahore, Pakistan',
     dateOfBirth: '2003-07-12',
     studentId: '2023s-mulbscs-016',
-    major: 'Computer Science',
-    year: 'Senior',
+    major: 'BS Computer Science',
+    semester: '6th Semester',
     gpa: '3.0',
+    university: 'Minhaj University Lahore',
   });
 
   const courses = [
@@ -30,7 +31,6 @@ function Profile() {
 
   const handleSave = () => {
     setIsEditing(false);
-    // In a real app, this would save to the backend
     alert('Profile updated successfully!');
   };
 
@@ -70,13 +70,13 @@ function Profile() {
               <User className="h-16 w-16 text-white" />
             </div>
             <h2 className="text-2xl font-bold text-white">{profile.name}</h2>
-            <p className="text-sky-300">{profile.studentId}</p>
-            <div className="mt-4 flex items-center gap-2">
+            <p className="text-sky-300">Roll No: {profile.studentId}</p>
+            <div className="mt-4 flex flex-wrap items-center justify-center gap-2">
               <span className="px-3 py-1 rounded-full bg-gradient-to-r from-sky-500/30 to-blue-500/30 text-sky-200 text-sm font-semibold ring-1 ring-sky-400/30">
                 {profile.major}
               </span>
               <span className="px-3 py-1 rounded-full bg-gradient-to-r from-orange-500/30 to-amber-500/30 text-orange-200 text-sm font-semibold ring-1 ring-orange-400/30">
-                {profile.year}
+                {profile.semester}
               </span>
             </div>
           </div>
@@ -86,6 +86,10 @@ function Profile() {
               <div className="flex items-center justify-center gap-3 text-gray-300 bg-gradient-to-r from-sky-500/10 to-blue-500/10 py-3 rounded-lg">
                 <BookOpen className="h-5 w-5 text-sky-400" />
                 <span className="font-semibold">GPA: <span className="text-sky-300">{profile.gpa}</span></span>
+              </div>
+              <div className="flex items-center justify-center gap-3 text-gray-300 bg-gradient-to-r from-sky-500/10 to-blue-500/10 py-3 rounded-lg">
+                <GraduationCap className="h-5 w-5 text-sky-400" />
+                <span className="font-semibold text-center">{profile.university}</span>
               </div>
             </div>
           </div>
@@ -193,18 +197,22 @@ function Profile() {
       <div className="p-6 rounded-xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-sky-400/20 shadow-xl">
         <h3 className="text-2xl font-bold text-white mb-6">Academic Information</h3>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           <div>
-            <label className="block text-sm text-gray-400 mb-2">Student ID</label>
+            <label className="block text-sm text-gray-400 mb-2">Roll Number</label>
             <p className="text-white font-medium">{profile.studentId}</p>
           </div>
           <div>
-            <label className="block text-sm text-gray-400 mb-2">Major</label>
+            <label className="block text-sm text-gray-400 mb-2">Program</label>
             <p className="text-white font-medium">{profile.major}</p>
           </div>
           <div>
-            <label className="block text-sm text-gray-400 mb-2">Year</label>
-            <p className="text-white font-medium">{profile.year}</p>
+            <label className="block text-sm text-gray-400 mb-2">Semester</label>
+            <p className="text-white font-medium">{profile.semester}</p>
+          </div>
+          <div>
+            <label className="block text-sm text-gray-400 mb-2">University</label>
+            <p className="text-white font-medium">{profile.university}</p>
           </div>
         </div>
       </div>
