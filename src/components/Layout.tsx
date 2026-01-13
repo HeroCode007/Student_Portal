@@ -20,8 +20,8 @@ function Layout({ children }: LayoutProps) {
         <Navbar onMenuClick={() => setSidebarOpen(true)} />
 
         {/* Content Container */}
-        <main className="flex-1 overflow-y-auto p-4 md:p-8 bg-white/5 backdrop-blur-xl border-t border-white/10 shadow-inner">
-          <div className="max-w-7xl mx-auto bg-white/10 rounded-2xl p-6 md:p-8 backdrop-blur-xl shadow-xl border border-white/10 hover:border-indigo-400/20 transition-all">
+        <main className="flex-1 overflow-y-auto p-4 md:p-8 bg-gradient-to-br from-slate-900/50 to-blue-900/50 backdrop-blur-xl border-t border-sky-400/20 shadow-inner">
+          <div className="max-w-7xl mx-auto bg-gradient-to-br from-white/5 to-white/10 rounded-2xl p-6 md:p-8 backdrop-blur-xl shadow-2xl border border-sky-400/20 hover:border-sky-400/40 transition-all">
             {children}
           </div>
         </main>

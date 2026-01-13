@@ -1,20 +1,28 @@
 import { useState } from 'react';
-import { User, Mail, Phone, MapPin, Calendar, BookOpen, Save, Edit2 } from 'lucide-react';
+import { User, Mail, Phone, MapPin, Calendar, BookOpen, Save, Edit2, GraduationCap } from 'lucide-react';
 
 function Profile() {
   const [isEditing, setIsEditing] = useState(false);
   const [profile, setProfile] = useState({
-    name: 'John Doe',
-    email: 'john.doe@university.edu',
-    phone: '+1 (555) 123-4567',
-    address: '123 University Ave, College Town, ST 12345',
-    dateOfBirth: '1999-05-15',
-    studentId: 'STU-2024-001',
+    name: 'Muhammad Umar Munir',
+    email: '2023s-mulbscs-016',
+    phone: '0303-0192804',
+    address: 'Lahore Pakistan',
+    dateOfBirth: '2003-07-12',
+    studentId: '2023s-mulbscs-016',
     major: 'Computer Science',
-    year: 'Junior',
-    gpa: '3.75',
-    advisor: 'Dr. Sarah Johnson',
+    year: 'Senior',
+    gpa: '3.0',
   });
+
+  const courses = [
+    { code: 'CS-601', name: 'Software Engineering', credits: 3 },
+    { code: 'CS-602', name: 'Artificial Intelligence', credits: 3 },
+    { code: 'CS-603', name: 'Computer Networks', credits: 3 },
+    { code: 'CS-604', name: 'Database Systems', credits: 3 },
+    { code: 'CS-605', name: 'Web Technologies', credits: 3 },
+    { code: 'CS-606', name: 'Operating Systems', credits: 3 },
+  ];
 
   const handleInputChange = (field: string, value: string) => {
     setProfile((prev) => ({ ...prev, [field]: value }));
@@ -37,7 +45,7 @@ function Profile() {
         {isEditing ? (
           <button
             onClick={handleSave}
-            className="flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition"
+            className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 text-white rounded-lg transition shadow-lg hover:shadow-xl hover:scale-105"
           >
             <Save className="h-5 w-5" />
             Save Changes
@@ -45,7 +53,7 @@ function Profile() {
         ) : (
           <button
             onClick={() => setIsEditing(true)}
-            className="flex items-center gap-2 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg transition"
+            className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-sky-600 to-blue-600 hover:from-sky-700 hover:to-blue-700 text-white rounded-lg transition shadow-lg hover:shadow-xl hover:scale-105"
           >
             <Edit2 className="h-5 w-5" />
             Edit Profile
@@ -56,18 +64,18 @@ function Profile() {
       {/* Profile Card */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Profile Picture & Quick Info */}
-        <div className="p-6 rounded-xl bg-white/5 backdrop-blur-xl border border-white/10">
+        <div className="p-6 rounded-xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-sky-400/20 shadow-xl">
           <div className="flex flex-col items-center text-center">
-            <div className="w-32 h-32 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center mb-4">
+            <div className="w-32 h-32 rounded-full bg-gradient-to-br from-sky-400 via-blue-500 to-indigo-600 flex items-center justify-center mb-4 shadow-2xl ring-4 ring-sky-400/30">
               <User className="h-16 w-16 text-white" />
             </div>
             <h2 className="text-2xl font-bold text-white">{profile.name}</h2>
-            <p className="text-gray-400">{profile.studentId}</p>
+            <p className="text-sky-300">{profile.studentId}</p>
             <div className="mt-4 flex items-center gap-2">
-              <span className="px-3 py-1 rounded-full bg-indigo-600/30 text-indigo-300 text-sm">
+              <span className="px-3 py-1 rounded-full bg-gradient-to-r from-sky-500/30 to-blue-500/30 text-sky-200 text-sm font-semibold ring-1 ring-sky-400/30">
                 {profile.major}
               </span>
-              <span className="px-3 py-1 rounded-full bg-teal-600/30 text-teal-300 text-sm">
+              <span className="px-3 py-1 rounded-full bg-gradient-to-r from-orange-500/30 to-amber-500/30 text-orange-200 text-sm font-semibold ring-1 ring-orange-400/30">
                 {profile.year}
               </span>
             </div>
@@ -75,21 +83,17 @@ function Profile() {
 
           <div className="mt-6 pt-6 border-t border-white/10">
             <div className="space-y-4">
-              <div className="flex items-center gap-3 text-gray-300">
-                <BookOpen className="h-5 w-5 text-indigo-400" />
-                <span>GPA: {profile.gpa}</span>
-              </div>
-              <div className="flex items-center gap-3 text-gray-300">
-                <User className="h-5 w-5 text-indigo-400" />
-                <span>Advisor: {profile.advisor}</span>
+              <div className="flex items-center justify-center gap-3 text-gray-300 bg-gradient-to-r from-sky-500/10 to-blue-500/10 py-3 rounded-lg">
+                <BookOpen className="h-5 w-5 text-sky-400" />
+                <span className="font-semibold">GPA: <span className="text-sky-300">{profile.gpa}</span></span>
               </div>
             </div>
           </div>
         </div>
 
         {/* Personal Information */}
-        <div className="lg:col-span-2 p-6 rounded-xl bg-white/5 backdrop-blur-xl border border-white/10">
-          <h3 className="text-xl font-semibold text-white mb-6">Personal Information</h3>
+        <div className="lg:col-span-2 p-6 rounded-xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-sky-400/20 shadow-xl">
+          <h3 className="text-2xl font-bold text-white mb-6">Personal Information</h3>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Full Name */}
@@ -103,7 +107,7 @@ function Profile() {
                   type="text"
                   value={profile.name}
                   onChange={(e) => handleInputChange('name', e.target.value)}
-                  className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-indigo-500"
+                  className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-cyan-500"
                 />
               ) : (
                 <p className="text-white">{profile.name}</p>
@@ -121,7 +125,7 @@ function Profile() {
                   type="email"
                   value={profile.email}
                   onChange={(e) => handleInputChange('email', e.target.value)}
-                  className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-indigo-500"
+                  className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-cyan-500"
                 />
               ) : (
                 <p className="text-white">{profile.email}</p>
@@ -139,7 +143,7 @@ function Profile() {
                   type="tel"
                   value={profile.phone}
                   onChange={(e) => handleInputChange('phone', e.target.value)}
-                  className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-indigo-500"
+                  className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-cyan-500"
                 />
               ) : (
                 <p className="text-white">{profile.phone}</p>
@@ -157,7 +161,7 @@ function Profile() {
                   type="date"
                   value={profile.dateOfBirth}
                   onChange={(e) => handleInputChange('dateOfBirth', e.target.value)}
-                  className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-indigo-500"
+                  className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-cyan-500"
                 />
               ) : (
                 <p className="text-white">{new Date(profile.dateOfBirth).toLocaleDateString()}</p>
@@ -175,7 +179,7 @@ function Profile() {
                   type="text"
                   value={profile.address}
                   onChange={(e) => handleInputChange('address', e.target.value)}
-                  className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-indigo-500"
+                  className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-cyan-500"
                 />
               ) : (
                 <p className="text-white">{profile.address}</p>
@@ -186,10 +190,10 @@ function Profile() {
       </div>
 
       {/* Academic Information */}
-      <div className="p-6 rounded-xl bg-white/5 backdrop-blur-xl border border-white/10">
-        <h3 className="text-xl font-semibold text-white mb-6">Academic Information</h3>
+      <div className="p-6 rounded-xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-sky-400/20 shadow-xl">
+        <h3 className="text-2xl font-bold text-white mb-6">Academic Information</h3>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div>
             <label className="block text-sm text-gray-400 mb-2">Student ID</label>
             <p className="text-white font-medium">{profile.studentId}</p>
@@ -202,10 +206,33 @@ function Profile() {
             <label className="block text-sm text-gray-400 mb-2">Year</label>
             <p className="text-white font-medium">{profile.year}</p>
           </div>
-          <div>
-            <label className="block text-sm text-gray-400 mb-2">Academic Advisor</label>
-            <p className="text-white font-medium">{profile.advisor}</p>
+        </div>
+      </div>
+
+      {/* 6th Semester Courses */}
+      <div className="p-6 rounded-xl bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-xl border border-sky-400/20 shadow-xl">
+        <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+          <div className="p-2 bg-gradient-to-br from-sky-400 to-blue-500 rounded-lg">
+            <GraduationCap className="h-6 w-6 text-white" />
           </div>
+          6th Semester Courses
+        </h3>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {courses.map((course) => (
+            <div
+              key={course.code}
+              className="p-5 rounded-xl bg-gradient-to-br from-white/10 to-white/5 border border-white/20 hover:border-sky-400/50 hover:shadow-lg hover:scale-105 transition-all duration-300"
+            >
+              <div className="flex justify-between items-start mb-3">
+                <h4 className="text-white font-bold text-lg">{course.code}</h4>
+                <span className="px-3 py-1 rounded-full bg-gradient-to-r from-sky-500 to-blue-500 text-white text-xs font-semibold shadow-md">
+                  {course.credits} Credits
+                </span>
+              </div>
+              <p className="text-gray-200 text-sm font-medium">{course.name}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>

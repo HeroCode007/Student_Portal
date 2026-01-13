@@ -3,8 +3,6 @@ import {
   LayoutDashboard,
   BookOpen,
   ClipboardList,
-  Calendar,
-  TrendingUp,
   User,
   LogOut,
   X
@@ -22,8 +20,6 @@ function Sidebar({ isOpen, onClose }: SidebarProps) {
     { icon: LayoutDashboard, label: 'Dashboard', path: '/dashboard' },
     { icon: BookOpen, label: 'Courses', path: '/courses' },
     { icon: ClipboardList, label: 'Assignments', path: '/assignments' },
-    { icon: Calendar, label: 'Schedule', path: '/schedule' },
-    { icon: TrendingUp, label: 'Grades', path: '/grades' },
     { icon: User, label: 'Profile', path: '/profile' },
   ];
 
@@ -43,8 +39,8 @@ function Sidebar({ isOpen, onClose }: SidebarProps) {
       <div
         className={`
           fixed md:static inset-y-0 left-0 z-50 w-64
-          bg-gradient-to-b from-indigo-600/90 via-purple-600/90 to-pink-600/90
-          backdrop-blur-xl text-white shadow-2xl border-r border-white/20
+          bg-gradient-to-br from-sky-600 via-blue-700 to-indigo-800
+          backdrop-blur-xl text-white shadow-2xl border-r border-sky-400/20
           transform transition-transform duration-300 ease-in-out
           ${isOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}
         `}
@@ -52,10 +48,10 @@ function Sidebar({ isOpen, onClose }: SidebarProps) {
         {/* Header */}
         <div className="flex items-center justify-between h-16 px-6 border-b border-white/10">
           <div className="flex items-center space-x-2">
-            <div className="h-9 w-9 bg-white/20 rounded-lg flex items-center justify-center border border-white/20">
+            <div className="h-9 w-9 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-lg flex items-center justify-center border-2 border-white/30 shadow-lg">
               <span className="text-white font-bold text-sm">SP</span>
             </div>
-            <span className="font-semibold text-white tracking-wide">Student Portal</span>
+            <span className="font-bold text-white tracking-wide text-lg">Student Portal</span>
           </div>
           <button onClick={onClose} className="md:hidden p-2 text-white/60 hover:text-white">
             <X className="h-5 w-5" />
@@ -73,8 +69,8 @@ function Sidebar({ isOpen, onClose }: SidebarProps) {
                   className={`
                     flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-300
                     ${isActive(item.path)
-                      ? 'bg-white/20 text-white shadow-md ring-2 ring-white/30'
-                      : 'text-white/80 hover:bg-white/10 hover:text-white'
+                      ? 'bg-gradient-to-r from-sky-400/30 to-blue-500/30 text-white shadow-lg ring-2 ring-sky-300/50 backdrop-blur-sm'
+                      : 'text-white/90 hover:bg-white/15 hover:text-white hover:shadow-md'
                     }
                   `}
                 >

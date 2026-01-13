@@ -37,7 +37,7 @@ function Navbar({ onMenuClick }: NavbarProps) {
             <div className="flex items-center space-x-3">
               <div className="hidden sm:block text-right">
                 <div className="text-sm font-semibold text-white">
-                  Waqar ul Hasan
+                  Umar Munir
                 </div>
                 <div className="text-xs text-white/70">
                   Computer Science
@@ -45,7 +45,7 @@ function Navbar({ onMenuClick }: NavbarProps) {
               </div>
 
               <div className="h-9 w-9 bg-white/20 text-white rounded-xl flex items-center justify-center border border-white/20">
-                <span className="text-sm font-medium">WH</span>
+                <span className="text-sm font-medium">UM</span>
               </div>
             </div>
           </div>
